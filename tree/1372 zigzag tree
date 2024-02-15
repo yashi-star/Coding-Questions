@@ -1,0 +1,22 @@
+1372. Longest ZigZag Path in a Binary Tree
+
+class Solution {
+public:
+int tree(TreeNode *root,bool flag,int path){
+    if(root==NULL)
+    return path;
+
+    if(flag==false){
+            return max(tree(root->left,false,0),tree(root->right,true,path+1));
+        }
+        else{
+          return max(tree(root->left,false,path+1),tree(root->right,true,0));
+    }
+}
+    int longestZigZag(TreeNode* root) {
+        if(root==NULL)
+        return 0;
+        else
+        return max(tree(root->left,false,0),tree(root->right,true,0));
+    }
+};
