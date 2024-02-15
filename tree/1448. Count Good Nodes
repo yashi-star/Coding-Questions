@@ -1,0 +1,22 @@
+1448. Count Good Nodes in Binary Tree
+class Solution {
+public:
+void tree(TreeNode *root,int max,int &goodcount){
+    if (root==NULL)
+        return ;
+            if(root->val>=max){
+            goodcount++;
+            max=root->val;
+            }
+
+       tree(root->left,max,goodcount);
+       tree(root->right,max,goodcount);
+}
+    int goodNodes(TreeNode* root) {
+        int goodcount=0;
+        if(root==NULL)
+        return 0;
+        tree(root,root->val,goodcount);
+        return goodcount;
+    }
+};
