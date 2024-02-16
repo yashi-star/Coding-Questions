@@ -1,0 +1,29 @@
+
+class Solution {
+public:
+    bool hasPathSum(TreeNode* root, int targetsum) {
+        if(root==NULL){
+            return false;
+        }
+        if(root->left==NULL&& root->right==NULL )
+        return targetsum==root->val;
+        //recursive call
+         return hasPathSum(root->left,targetsum-root->val)|| hasPathSum(root->right,targetsum-root->val);
+
+    }
+};
+
+
+class Solution {
+public:
+    bool hasPathSum(TreeNode* root, int targetsum) {
+        if(root==NULL){
+            return false;
+        }
+        if(root->left==NULL&& root->right==NULL && targetsum-root->val ==0)
+        return true;
+        //recursive call
+         return hasPathSum(root->left,targetsum-root->val)|| hasPathSum(root->right,targetsum-root->val);
+
+    }
+};
