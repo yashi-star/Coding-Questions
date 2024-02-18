@@ -1,0 +1,18 @@
+class Solution
+{
+    public:
+    void solve(Node *root,int &sum){
+        if(root==NULL)
+        return ;
+        if(root->left==NULL &&root->right==NULL)
+        sum+=root->data;
+        
+        solve(root->left,sum);
+        solve(root->right,sum);
+    }
+        /*You are required to complete below method */
+        int sumOfLeafNodes(Node *root ){
+            int sum=0;
+        solve(root ,sum);
+        return sum;}
+};
