@@ -1,0 +1,34 @@
+//aproach 1   indegree and outdregree   O(n)
+class Solution {
+public:
+    int findJudge(int n, vector<vector<int>>& trust) {
+       vector<int>count(n+1,0);
+       for(auto x:trust ){
+        count[x[0]]--;
+        count[x[1]]++;
+       }
+       for(int i=1;i<=n;i++){
+        if(count[i]==n-1)
+        return i;}
+        return -1;
+    }
+};
+aproach 2  map
+class Solution {
+public:
+    int findJudge(int n, vector<vector<int>>& trust) {
+        unordered_map<int, int> map;
+        if(n==1)
+        return 1;
+
+        for (auto v : trust)
+        {   map[v[0]] = -1;//not judge
+            if (map[v[1]] != -1)//not truster yet
+                map[v[1]]++;//so increase
+        }
+        for (auto it : map) {
+            if (it.second == n-1)
+                return it.first;   }
+        return -1;
+    }
+};
