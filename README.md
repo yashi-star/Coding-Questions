@@ -25,9 +25,4 @@ rating -2 star
 ```
 https://www.geeksforgeeks.org/user/pantyashi54/
 ```
-#Overall Coding Score 57
-#Total Problem Solved 37
 
-## License
-
-MIT
